@@ -2,6 +2,9 @@ let pass = document.querySelector(".pass");
 const emailinput = document.querySelector(".emailinput");
 const checkemail = document.querySelector(".checkemail");
 
+// 중복확인
+let duplecheck = false;
+
 // 이메일 중복 확인
 document.querySelector(".checkbtn").addEventListener("click", () => {
   // 백엔드에 요청
@@ -14,8 +17,10 @@ document.querySelector(".checkbtn").addEventListener("click", () => {
       console.log(filterdata);
       if (filterdata.length <= 0) {
         checkemail.innerHTML = `사용 가능한 이메일입니다.`;
+        duplecheck = true;
       } else {
         checkemail.innerHTML = `중복된 이메일입니다.`;
+        duplecheck = false;
       }
     })
     .catch((e) => {
@@ -25,6 +30,7 @@ document.querySelector(".checkbtn").addEventListener("click", () => {
 const checke = () => {
   if (emailinput.value.length === 0) {
     checkemail.innerHTML = ``;
+    duplecheck = false;
   }
 };
 
@@ -56,16 +62,27 @@ const checkSame = () => {
 };
 
 // 휴대번호 유효성 검사
-const checkPhone = () => {
-  const pattern =
-    /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
-  const phonecheck = document.querySelector(".phonecheck");
-  const checkphone = document.querySelector(".checkphone");
+const checkPhone = (id) => {
+  let pattern;
+  if (id === 1) {
+    pattern = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})$/;
+  } else if (id === 2) {
+    pattern = /^[0-9]{3,4}$/;
+  } else {
+    pattern = /^[0-9]{4}$/;
+  }
+
+  const phonecheck = document.querySelector(`.phonecheck${id}`);
+  const checkphone = document.querySelector(`.checkphone${id}`);
+
+  if (phonecheck.value.length > phonecheck.maxLength) {
+    phonecheck.value = phonecheck.value.slice(0, phonecheck.maxLength);
+  }
 
   if (phonecheck.value.length === 0) {
     checkphone.innerHTML = ``;
   } else if (pattern.test(phonecheck.value) === false) {
-    checkphone.innerHTML = `올바른 휴대번호로 입력해주세요.`;
+    checkphone.innerHTML = `${id}번째 칸에 올바른 번호로 입력해주세요.`;
   } else {
     checkphone.innerHTML = ``;
   }
@@ -79,12 +96,28 @@ const joinreq = () => {
   let pass2 = joinForm.pw2.value;
   let name = joinForm.name.value;
   let birth = joinForm.birth.value;
-  let phone = joinForm.phone.value;
-  let gender = joinForm.gender.value;
+  let phone1 = joinForm.phone1.value;
+  let phone2 = joinForm.phone2.value;
+  let phone3 = joinForm.phone3.value;
+  let gender = document.querySelector('input[name="gender"]:checked')?.value;
 
-  if (!email || !pass || !pass2 || !name || !birth || !phone || !gender) {
+  if (
+    !email ||
+    !pass ||
+    !pass2 ||
+    !name ||
+    !birth ||
+    !phone1 ||
+    !phone2 ||
+    !phone3 ||
+    !gender
+  ) {
     alert("모두 입력해주세요");
+  } else if (duplecheck === false) {
+    checkemail.innerHTML = `중복 확인해주세요.`;
   } else {
+    // 휴대폰 번호 합치기
+    const phone = `${phone1}-${phone2}-${phone3}`;
     joinForm.submit();
 
     Swal.fire({
@@ -116,6 +149,7 @@ const test = () => {
         base_data.push(update_data);
         localStorage.setItem("userinfo", JSON.stringify(base_data));
       }
+      window.location.href = "/";
     })
     .catch((e) => {
       console.log("에러");

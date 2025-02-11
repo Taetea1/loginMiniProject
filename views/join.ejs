@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="/CSS/join.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>회원가입</title>
 </head>
 <!-- 회원가입 페이지 -->
 
 <body>
-  <div class="login-box">
+  <div class="join-box">
     <form action="/postForm" method="post" name="joinForm">
       <div>
         <div>ID</div>
@@ -51,9 +51,12 @@
       </div>
       <div>
         <div>휴대전화번호</div>
-        <input class="phonecheck" oninput="checkPhone()" type="number" placeholder="전화번호를 입력해 주세요." name="phone"
-          required />
-        <div class="text checkphone"></div>
+        <input maxlength="3" class="phonecheck1" oninput="checkPhone(1)" type="number" name="phone1" required /> -
+        <input maxlength="4" class="phonecheck2" oninput="checkPhone(2)" type="number" name="phone2" required /> -
+        <input maxlength="4" class="phonecheck3" oninput="checkPhone(3)" type="number" name="phone3" required />
+        <div class="text checkphone1"></div>
+        <div class="text checkphone2"></div>
+        <div class="text checkphone3"></div>
       </div>
       <input type="button" onclick="joinreq()" value="회원가입" />
     </form>

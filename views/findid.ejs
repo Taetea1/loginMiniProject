@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 찾기</title>
+</head>
+
+<body>
+  <div>
+    <div>아이디를 찾고자하는 휴대폰 번호를 입력해주세요.</div>
+    <div>
+      <form action="/postPhone" method="post" id="sub">
+        <input maxlength="3" class="phonecheck1" oninput="checkPhone(1)" type="number" name="phone1" required /> -
+        <input maxlength="4" class="phonecheck2" oninput="checkPhone(2)" type="number" name="phone2" required /> -
+        <input maxlength="4" class="phonecheck3" oninput="checkPhone(3)" type="number" name="phone3" required />
+        <div class="text checkphone1"></div>
+        <div class="text checkphone2"></div>
+        <div class="text checkphone3"></div>
+        <button onclick="checkid()">아이디 찾기</button>
+      </form>
+
+      <!-- 서버 안 사용 -->
+      <!-- <form id="sub">
+        <input maxlength="3" class="phonecheck1" oninput="checkPhone(1)" type="number" name="phone1" required /> -
+        <input maxlength="4" class="phonecheck2" oninput="checkPhone(2)" type="number" name="phone2" required /> -
+        <input maxlength="4" class="phonecheck3" oninput="checkPhone(3)" type="number" name="phone3" required />
+        <div class="text checkphone1"></div>
+        <div class="text checkphone2"></div>
+        <div class="text checkphone3"></div>
+        <input type="button" onclick="checkid()" value="아이디 찾기" />
+      </form> -->
+      <div>
+        <div class="idinfo"></div>
+      </div>
+
+    </div>
+</body>
+<script src="/JS/findid.js"></script>
+
+</html>

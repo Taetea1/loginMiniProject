@@ -2,13 +2,40 @@
 <html lang="en">
 
 <head>
+  <!-- alert창 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link rel="stylesheet" href="/CSS/join.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>로그인</title>
 </head>
+<!-- 로그인 페이지 -->
 
 <body>
+  <div class="login-box">
+    <form action="/getForm" method="get" name="joinForm">
+      <div>
+        <div>아이디</div>
+        <div class="dupleCheckBox">
+          <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" oninput="checke()" required />
+        </div>
+        <div class="text checkemail"></div>
+      </div>
 
+      <div>
+        <div>비밀번호</div>
+        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
+        <div class="text checkpw"></div>
+      </div>
+      <input type="button" onclick="joinreq()" value="로그인" />
+    </form>
+    <button onclick="findid()">아이디 찾기</button>
+    <button onclick="findpw()">비밀번호 찾기</button>
+    <button onclick="join()">회원가입</button>
+  </div>
 </body>
+
+<script src="/JS/main.js"></script>
 
 </html>

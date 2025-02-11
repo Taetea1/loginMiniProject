@@ -15,10 +15,29 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 let data = {};
+let number = {};
 
 // 회원가입 정보 보냄
 app.post("/postForm", (req, res) => {
-  data = req.body;
+  // 클라이언트에서 전송한 데이터 추출
+  let { id, pw, name, birth, gender, phone1, phone2, phone3 } = req.body;
+
+  //생년월일 하이픈 제거
+  let bir = birth.replace(/-/g, "");
+
+  // 휴대전화 번호(서버에서 합침)
+  let phone = `${phone1}${phone2}${phone3}`;
+
+  // 가공한 데이터
+  let newUser = {
+    id,
+    pw,
+    name,
+    bir,
+    gender,
+    phone,
+  };
+  data = newUser;
   console.log(req.body, "회원가입정보post요청 왔니?");
 });
 
@@ -28,16 +47,35 @@ app.get("/joinuser", (req, res) => {
   res.json(data);
 });
 
-// app.get("/getForm", (req, res) => {
-//   console.log(req.query, "getssssss요청 왔니?");
-//   data = req.query;
-// });
+// 휴대번호 정보 보냄
+app.post("/postPhone", (req, res) => {
+  // 클라이언트에서 전송한 데이터 추출
+  let { phone1, phone2, phone3 } = req.body;
+
+  // 휴대전화 번호 합침
+  let phone = `${phone1}${phone2}${phone3}`;
+
+  number = phone;
+  console.log(number, "회원가입정보post요청 왔니?");
+});
+
+// 전화번호 요청
+app.get("/getPhone", (req, res) => {
+  console.log(number, "휴대폰get요청 왔니?");
+  res.json(number);
+});
+
 app.get("/", (req, res) => {
   res.render("main");
 });
-
 app.get("/join", (req, res) => {
   res.render("join");
+});
+app.get("/findid", (req, res) => {
+  res.render("findid");
+});
+app.get("/findpw", (req, res) => {
+  res.render("findpw");
 });
 
 app.listen(port, () => {
