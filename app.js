@@ -26,7 +26,6 @@ app.post("/postForm", (req, res) => {
 app.get("/joinuser", (req, res) => {
   console.log(req.query, "회원가입get요청 왔니?");
   res.json(data);
-  // res.render("main");
 });
 
 // app.get("/getForm", (req, res) => {

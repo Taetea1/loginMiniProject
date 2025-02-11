@@ -1,4 +1,32 @@
 let pass = document.querySelector(".pass");
+const emailinput = document.querySelector(".emailinput");
+const checkemail = document.querySelector(".checkemail");
+
+// 이메일 중복 확인
+document.querySelector(".checkbtn").addEventListener("click", () => {
+  // 백엔드에 요청
+  fetch("/joinuser")
+    .then((response) => response.json())
+    .then((data) => {
+      let base_data = [];
+      base_data = JSON.parse(localStorage.getItem("userinfo")) || [];
+      let filterdata = base_data.filter((item) => item.id === emailinput.value);
+      console.log(filterdata);
+      if (filterdata.length <= 0) {
+        checkemail.innerHTML = `사용 가능한 이메일입니다.`;
+      } else {
+        checkemail.innerHTML = `중복된 이메일입니다.`;
+      }
+    })
+    .catch((e) => {
+      console.log("에러");
+    });
+});
+const checke = () => {
+  if (emailinput.value.length === 0) {
+    checkemail.innerHTML = ``;
+  }
+};
 
 // 비밀번호 유효성 확인
 const checkPw = () => {

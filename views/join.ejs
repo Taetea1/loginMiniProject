@@ -18,9 +18,10 @@
       <div>
         <div>ID</div>
         <div class="dupleCheckBox">
-          <input type="email" placeholder="이메일을 작성해 주세요." name="id" required />
-          <div onclick="" class="checkbtn">중복확인</div>
+          <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" oninput="checke()" required />
+          <div class="checkbtn">중복확인</div>
         </div>
+        <div class="text checkemail"></div>
       </div>
 
       <div>
