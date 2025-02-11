@@ -35,7 +35,7 @@ const checkPhone = (id) => {
 //   let arr = [];
 //   document.getElementById("sub").submit();
 //   // 백엔드에 요청 보냄
-//   fetch("/getPhone")
+//   fetch("/getData")
 //     .then((response) => response.json())
 //     .then((data) => {
 //       console.log(data);
@@ -66,7 +66,7 @@ const checkid = () => {
     document.getElementById("sub").submit();
 
     setTimeout(() => {
-      fetch("/getPhone")
+      fetch("/getData")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);

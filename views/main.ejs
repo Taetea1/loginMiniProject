@@ -14,25 +14,22 @@
 
 <body>
   <div class="login-box">
-    <form action="/getForm" method="get" name="joinForm">
+    <form action="/postId" method="post" id="sub">
       <div>
         <div>아이디</div>
-        <div class="dupleCheckBox">
-          <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" oninput="checke()" required />
-        </div>
-        <div class="text checkemail"></div>
+        <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" required />
       </div>
 
       <div>
         <div>비밀번호</div>
-        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
-        <div class="text checkpw"></div>
+        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" required />
       </div>
-      <input type="button" onclick="joinreq()" value="로그인" />
+      <div class="text info"></div>
+      <input type="button" onclick="loginreq()" value="로그인" />
     </form>
-    <button onclick="findid()">아이디 찾기</button>
-    <button onclick="findpw()">비밀번호 찾기</button>
-    <button onclick="join()">회원가입</button>
+    <button onclick="move('findid')">아이디 찾기</button>
+    <button onclick="move('findpw')">비밀번호 찾기</button>
+    <button onclick="move('join')">회원가입</button>
   </div>
 </body>
 

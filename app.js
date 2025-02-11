@@ -15,7 +15,6 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 let data = {};
-let number = {};
 
 // 회원가입 정보 보냄
 app.post("/postForm", (req, res) => {
@@ -41,8 +40,8 @@ app.post("/postForm", (req, res) => {
   console.log(req.body, "회원가입정보post요청 왔니?");
 });
 
-// 회원가입 요청
-app.get("/joinuser", (req, res) => {
+// 정보요청
+app.get("/getData", (req, res) => {
   console.log(req.query, "회원가입get요청 왔니?");
   res.json(data);
 });
@@ -55,14 +54,14 @@ app.post("/postPhone", (req, res) => {
   // 휴대전화 번호 합침
   let phone = `${phone1}${phone2}${phone3}`;
 
-  number = phone;
-  console.log(number, "회원가입정보post요청 왔니?");
+  data = phone;
+  console.log(data, "회원가입정보post요청 왔니?");
 });
 
-// 전화번호 요청
-app.get("/getPhone", (req, res) => {
-  console.log(number, "휴대폰get요청 왔니?");
-  res.json(number);
+// 아이디 정보 보냄
+app.post("/postId", (req, res) => {
+  data = req.body;
+  console.log(data, "회원가입정보post요청 왔니?");
 });
 
 app.get("/", (req, res) => {
@@ -76,6 +75,9 @@ app.get("/findid", (req, res) => {
 });
 app.get("/findpw", (req, res) => {
   res.render("findpw");
+});
+app.get("/welcome", (req, res) => {
+  res.render("welcome");
 });
 
 app.listen(port, () => {

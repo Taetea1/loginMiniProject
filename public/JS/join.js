@@ -8,7 +8,7 @@ let duplecheck = false;
 // 이메일 중복 확인
 document.querySelector(".checkbtn").addEventListener("click", () => {
   // 백엔드에 요청
-  fetch("/joinuser")
+  fetch("/getData")
     .then((response) => response.json())
     .then((data) => {
       let base_data = [];
@@ -134,7 +134,7 @@ const joinreq = () => {
 
 const test = () => {
   // 백엔드에 요청
-  fetch("/joinuser")
+  fetch("/getData")
     .then((response) => response.json())
     .then((data) => {
       let base_data = [];
