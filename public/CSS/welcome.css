@@ -1,0 +1,50 @@
+/* 전체 배경 */
+body {
+  background-color: #f9f9f9;
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 환영 메시지 컨테이너 */
+.welcome-container {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+}
+
+/* 제목 스타일 */
+h1 {
+  color: #04c75a;
+  font-size: 24px;
+}
+
+/* 안내 문구 */
+.info {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* 반응형 */
+@media (max-width: 500px) {
+  .welcome-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .info {
+    font-size: 14px;
+  }
+}
