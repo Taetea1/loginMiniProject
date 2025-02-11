@@ -13,52 +13,68 @@
 <!-- 회원가입 페이지 -->
 
 <body>
-  <div class="join-box">
+  <div class="join-container">
+    <h2>회원가입</h2>
+
     <form action="/postForm" method="post" name="joinForm">
-      <div>
-        <div>ID</div>
+      <!--  아이디 입력 -->
+      <div class="form-group">
+        <label for="id">아이디</label>
+
         <div class="dupleCheckBox">
-          <input class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" oninput="checke()" required />
+          <input class="in emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" oninput="checke()" required />
           <div class="checkbtn">중복확인</div>
         </div>
         <div class="text checkemail"></div>
       </div>
 
-      <div>
-        <div>비밀번호</div>
-        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
+      <!-- 비밀번호 입력 -->
+      <div class="form-group">
+        <label for="pw">비밀번호</label>
+        <input id="pw" class="in pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()"
+          required />
         <div class="text checkpw"></div>
       </div>
-      <div>
-        <div>비밀번호 확인</div>
-        <input class="passcheck" type="password" placeholder="비밀번호를 한번 더 입력해주세요." name="pw2" oninput="checkSame()"
-          required />
+      <!-- 비밀번호 확인 -->
+      <div class="form-group">
+        <label for="pw2">비밀번호 확인</label>
+        <input id="pw2" class="in passcheck" type="password" placeholder="비밀번호를 한번 더 입력해주세요." name="pw2"
+          oninput="checkSame()" required />
         <div class="text checkpw2"></div>
       </div>
 
-      <div>
-        <div>이름</div>
-        <input type="text" placeholder="이름을 입력해 주세요." name="name" required />
+      <!-- 이름 -->
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input class="in" id="name" type="text" placeholder="이름을 입력해 주세요." name="name" required />
       </div>
-      <div>
-        <div>생년월일</div>
-        <input type="date" placeholder="년월일" name="birth" required />
+      <!-- 생년월일 -->
+      <div class="form-group">
+        <label for="birth">생년월일</label>
+        <input class="in" id="birth" type="date" placeholder="년월일" name="birth" required />
       </div>
-      <div>
-        <div>성별</div>
-        <input type='radio' name='gender' value='female' />여성
-        <input type='radio' name='gender' value='male' />남성
+      <!-- 성별 -->
+      <div class="form-group">
+        <label>성별</label>
+        <div class="gender-group">
+          <label for="female">여성</label><input id="female" type='radio' name='gender' value='female' id="female" />
+          <label for="male">남성</label><input id="male" type='radio' name='gender' value='male' id="male" />
+        </div>
       </div>
-      <div>
-        <div>휴대전화번호</div>
-        <input maxlength="3" class="phonecheck1" oninput="checkPhone(1)" type="number" name="phone1" required /> -
-        <input maxlength="4" class="phonecheck2" oninput="checkPhone(2)" type="number" name="phone2" required /> -
-        <input maxlength="4" class="phonecheck3" oninput="checkPhone(3)" type="number" name="phone3" required />
+      <!-- 휴대전화번호 -->
+      <div class="form-group">
+        <label>휴대전화번호</label>
+        <div class="phone-group">
+          <input maxlength="3" class="in phonecheck1" oninput="checkPhone(1)" type="number" name="phone1" required /> -
+          <input maxlength="4" class="in phonecheck2" oninput="checkPhone(2)" type="number" name="phone2" required /> -
+          <input maxlength="4" class="in phonecheck3" oninput="checkPhone(3)" type="number" name="phone3" required />
+        </div>
+
         <div class="text checkphone1"></div>
         <div class="text checkphone2"></div>
         <div class="text checkphone3"></div>
       </div>
-      <input type="button" onclick="joinreq()" value="회원가입" />
+      <input type="button" onclick="joinreq()" value="회원가입" class="join-btn" />
     </form>
   </div>
 </body>

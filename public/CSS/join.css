@@ -1,20 +1,125 @@
+/* 전체 컨테이너 스타일 */
+.join-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 제목 스타일 */
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* 입력 필드 그룹 */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* 라벨 스타일 */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+  font-weight: bolder;
+}
+
+/* 입력 필드 */
+.in {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* ID 입력 및 중복확인 버튼 */
 .dupleCheckBox {
   display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+.dupleCheckBox input {
+  flex: 1;
+  min-width: 0;
+}
+
 .checkbtn {
+  background-color: #04c75a;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-left: 10px;
-  background-color: beige;
-  padding: 5px 10px 5px 10px;
-  border-radius: 10%;
+  flex-shrink: 0;
+  font-size: 14px;
 }
-.joinbtn {
-  max-width: 400px;
+
+.checkbtn:hover {
+  background-color: #03a64f;
+}
+
+/* 성별 선택 */
+.gender-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* 휴대폰 입력 */
+.phone-group {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.phone-group input {
+  text-align: center;
+  width: 30%;
+}
+
+/* 회원가입 버튼 */
+.join-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #04c75a;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  background-color: beige;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5%;
+  margin-top: 10px;
 }
+
+.join-btn:hover {
+  background-color: #03a64f;
+}
+
+/* 반응형 */
+@media (max-width: 500px) {
+  .join-container {
+    width: 90%;
+  }
+
+  .dupleCheckBox {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dupleCheckBox input {
+    width: 100%;
+  }
+}
+
 .text {
-  color: rgb(176, 16, 16);
+  color: #dc3545;
 }

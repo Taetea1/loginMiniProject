@@ -21,9 +21,11 @@ const checkPhone = (id) => {
   if (phonecheck.value.length === 0) {
     checkphone.innerHTML = ``;
     isGood = false;
+    idinfo.innerHTML = "";
   } else if (pattern.test(phonecheck.value) === false) {
     checkphone.innerHTML = `${id}번째 칸에 올바른 번호로 입력해주세요.`;
     isGood = false;
+    idinfo.innerHTML = "";
   } else {
     checkphone.innerHTML = ``;
     isGood = true;
@@ -75,13 +77,12 @@ const checkid = () => {
 
           let filterid = base_data.filter((item) => item.phone === data);
           if (filterid.length === 0) {
-            idinfo.innerHTML = `회원가입을 하지 않은 전화번호입니다.`;
+            idinfo.innerHTML = `<div class="infotext">회원가입을 하지 않은 전화번호입니다.</div>`;
           } else {
-            idinfo.innerHTML = `해당 전화번호의 아이디는 `;
             filterid.map((x) => {
               arr.push(x.id);
             });
-            idinfo.innerHTML += `${arr} 입니다.`;
+            idinfo.innerHTML = `<div class="infotext">해당 전화번호의 아이디는 ${arr} 입니다.</div>`;
           }
         })
         .catch((e) => {

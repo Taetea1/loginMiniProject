@@ -15,11 +15,16 @@ document.querySelector(".checkbtn").addEventListener("click", () => {
       base_data = JSON.parse(localStorage.getItem("userinfo")) || [];
       let filterdata = base_data.filter((item) => item.id === emailinput.value);
       console.log(filterdata);
-      if (filterdata.length <= 0) {
-        checkemail.innerHTML = `사용 가능한 이메일입니다.`;
-        duplecheck = true;
+      if (emailinput.value.length > 0 && emailinput.value.includes("@")) {
+        if (filterdata.length <= 0) {
+          checkemail.innerHTML = `사용 가능한 이메일입니다.`;
+          duplecheck = true;
+        } else {
+          checkemail.innerHTML = `중복된 이메일입니다.`;
+          duplecheck = false;
+        }
       } else {
-        checkemail.innerHTML = `중복된 이메일입니다.`;
+        checkemail.innerHTML = ``;
         duplecheck = false;
       }
     })

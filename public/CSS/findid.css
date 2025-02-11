@@ -1,0 +1,95 @@
+/* 전체 페이지 스타일 */
+body {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 메인 컨테이너 */
+.findid-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 타이틀 */
+.findid-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 설명 문구 */
+.findid-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* 입력 박스 스타일 */
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* 전화번호 입력 필드 */
+.inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.phonecheck {
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.phonecheck:focus {
+  outline: none;
+  border-color: #03c75a;
+  box-shadow: 0 0 5px rgba(3, 199, 90, 0.3);
+}
+
+/* 유효성 검사 메시지 */
+.infos .text {
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+}
+
+/* 아이디 찾기 버튼 */
+.findid-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #03c75a; /* 네이버 녹색 */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 결과 출력 박스 */
+.infotext {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}

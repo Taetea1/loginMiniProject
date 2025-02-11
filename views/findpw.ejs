@@ -2,24 +2,27 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="/CSS/findpw.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>비밀번호 찾기</title>
 </head>
 
 <body>
-  <div>
-    <div>비밀번호를 찾고자하는 아이디를 입력해주세요.</div>
-    <div>
-      <form action="/postId" method="post" id="sub">
+  <div class="findpw-container">
+    <h2 class="findpw-title">비밀번호 찾기</h2>
+    <p class="findpw-desc">가입 시 사용한 이메일을 입력해주세요.</p>
+    <form action="/postId" method="post" id="sub">
+      <div class="inputbox">
         <input oninput="checke()" class="emailinput" type="email" placeholder="이메일을 작성해 주세요." name="id" required />
-        <button onclick="checkpw()">비밀번호 찾기</button>
-      </form>
-      <div>
-        <div class="pwinfo"></div>
       </div>
-
+      <button onclick="checkpw()" class="findpw-btn">비밀번호 찾기</button>
+    </form>
+    <div>
+      <div class="pwinfo"></div>
     </div>
+
+  </div>
 </body>
 <script src="/JS/findpw.js"></script>
 
