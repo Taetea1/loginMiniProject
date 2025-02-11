@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/CSS/join.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 회원가입 페이지 -->
+
+<body>
+  <div class="login-box">
+    <form action="/join" method="get">
+      <div>
+        <div>ID</div>
+        <div class="dupleCheckBox">
+          <input type="email" placeholder="이메일을 작성해 주세요." name="id" required />
+          <div onclick="" class="checkbtn">중복확인</div>
+        </div>
+      </div>
+      <div>
+        <div>이름</div>
+        <input type="text" placeholder="이름을 입력해 주세요." name="name" required />
+      </div>
+      <div>
+        <div>비밀번호</div>
+        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
+        <div class="checkpw"></div>
+      </div>
+      <div>
+        <div>비밀번호 확인</div>
+        <input type="password" placeholder="비밀번호를 한번 더 입력해주세요." name="gender" required />
+      </div>
+      <div>
+        <div>성별</div>
+        <input type='radio' name='gender' value='female' />여성
+        <input type='radio' name='gender' value='male' />남성
+      </div>
+      <div onclick="" class="joinbtn">회원가입</div>
+    </form>
+  </div>
+</body>
+
+<script src="/JS/join.js"></script>
+
+</html>

@@ -1,0 +1,17 @@
+.dupleCheckBox {
+  display: flex;
+}
+.checkbtn {
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: beige;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10%;
+}
+.joinbtn {
+  max-width: 400px;
+  cursor: pointer;
+  background-color: beige;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5%;
+}
