@@ -1,3 +1,4 @@
+const { render } = require("ejs");
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -14,32 +15,30 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 let data = {};
+
+// 회원가입 정보 보냄
+app.post("/postForm", (req, res) => {
+  data = req.body;
+  console.log(req.body, "회원가입정보post요청 왔니?");
+});
+
+// 회원가입 요청
+app.get("/joinuser", (req, res) => {
+  console.log(req.query, "회원가입get요청 왔니?");
+  res.json(data);
+  // res.render("main");
+});
+
+// app.get("/getForm", (req, res) => {
+//   console.log(req.query, "getssssss요청 왔니?");
+//   data = req.query;
+// });
 app.get("/", (req, res) => {
   res.render("main");
 });
 
 app.get("/join", (req, res) => {
   res.render("join");
-});
-
-app.get("/getForm", (req, res) => {
-  // get 요청은 req.query에 담겨서 옴
-  console.log(req.query, "get요청 왔니?");
-  // res.render("result", { title: "GET 요청 결과", userinfo: req.query });
-  data = req.query;
-  res.render("search", { title: "해당 회원들" });
-});
-
-app.post("/postForm", (req, res) => {
-  // post 요청은 req.body에 담겨서 옴
-  data = req.body; //객체형식으로 들어감(json)
-  console.log(req.body, "요청 왔니?");
-  // res.render("result", { title: "POST 요청 결과", userinfo: req.body });
-  res.render("userlist", { title: "회원 정보 리스트" });
-});
-
-app.get("/userinfo", (req, res) => {
-  res.json(data);
 });
 
 app.listen(port, () => {

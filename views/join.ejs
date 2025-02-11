@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+  <!-- alert창 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <link rel="stylesheet" href="/CSS/join.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +14,7 @@
 
 <body>
   <div class="login-box">
-    <form action="/join" method="get">
+    <form action="/postForm" method="post" name="joinForm">
       <div>
         <div>ID</div>
         <div class="dupleCheckBox">
@@ -19,25 +22,39 @@
           <div onclick="" class="checkbtn">중복확인</div>
         </div>
       </div>
+
+      <div>
+        <div>비밀번호</div>
+        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
+        <div class="text checkpw"></div>
+      </div>
+      <div>
+        <div>비밀번호 확인</div>
+        <input class="passcheck" type="password" placeholder="비밀번호를 한번 더 입력해주세요." name="pw2" oninput="checkSame()"
+          required />
+        <div class="text checkpw2"></div>
+      </div>
+
       <div>
         <div>이름</div>
         <input type="text" placeholder="이름을 입력해 주세요." name="name" required />
       </div>
       <div>
-        <div>비밀번호</div>
-        <input class="pass" type="password" placeholder="비밀번호를 입력해 주세요." name="pw" oninput="checkPw()" required />
-        <div class="checkpw"></div>
-      </div>
-      <div>
-        <div>비밀번호 확인</div>
-        <input type="password" placeholder="비밀번호를 한번 더 입력해주세요." name="gender" required />
+        <div>생년월일</div>
+        <input type="date" placeholder="년월일" name="birth" required />
       </div>
       <div>
         <div>성별</div>
         <input type='radio' name='gender' value='female' />여성
         <input type='radio' name='gender' value='male' />남성
       </div>
-      <div onclick="" class="joinbtn">회원가입</div>
+      <div>
+        <div>휴대전화번호</div>
+        <input class="phonecheck" oninput="checkPhone()" type="number" placeholder="전화번호를 입력해 주세요." name="phone"
+          required />
+        <div class="text checkphone"></div>
+      </div>
+      <input type="button" onclick="joinreq()" value="회원가입" />
     </form>
   </div>
 </body>
