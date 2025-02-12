@@ -26,6 +26,7 @@
           <div class="checkbtn">중복확인</div>
         </div>
         <div class="text checkemail"></div>
+        <div class="successtext checkemail2"></div>
       </div>
 
       <!-- 비밀번호 입력 -->
@@ -51,7 +52,17 @@
       <!-- 생년월일 -->
       <div class="form-group">
         <label for="birth">생년월일</label>
-        <input class="in" id="birth" type="date" placeholder="년월일" name="birth" required />
+        <div class="info" id="info__birth">
+          <select class="in" name="birth1" class="box" id="birth-year" required>
+            <option disabled selected>출생 연도</option>
+          </select>
+          <select class="in" name="birth2" class="box" id="birth-month" required>
+            <option disabled selected>월</option>
+          </select>
+          <select class="in" name="birth3" class="box" id="birth-day" required>
+            <option disabled selected>일</option>
+          </select>
+        </div>
       </div>
       <!-- 성별 -->
       <div class="form-group">
@@ -76,6 +87,7 @@
       </div>
       <input type="button" onclick="joinreq()" value="회원가입" class="join-btn" />
     </form>
+    <div class="text checkall"></div>
   </div>
 </body>
 

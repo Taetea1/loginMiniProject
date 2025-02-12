@@ -1,9 +1,49 @@
 let pass = document.querySelector(".pass");
 const emailinput = document.querySelector(".emailinput");
 const checkemail = document.querySelector(".checkemail");
+const checkemail2 = document.querySelector(".checkemail2");
 
 // 중복확인
 let duplecheck = false;
+
+// '출생 연도' 셀렉트 박스 option 목록 동적 생성
+const birthYearEl = document.querySelector("#birth-year");
+const birthMonthEl = document.querySelector("#birth-month");
+const birthDayEl = document.querySelector("#birth-day");
+// option 목록 생성 여부 확인
+isYearOptionExisted = false;
+isMonthOptionExisted = false;
+isDayOptionExisted = false;
+birthYearEl.addEventListener("focus", function () {
+  // year 목록 생성되지 않았을 때 (최초 클릭 시)
+  if (!isYearOptionExisted) {
+    isYearOptionExisted = true;
+    for (var i = 1940; i <= 2025; i++) {
+      // option element 생성
+      birthYearEl.innerHTML += `<option value=${i}>${i}</option>`;
+    }
+  }
+});
+birthMonthEl.addEventListener("focus", function () {
+  // month 목록 생성되지 않았을 때 (최초 클릭 시)
+  if (!isMonthOptionExisted) {
+    isMonthOptionExisted = true;
+    for (var i = 1; i <= 12; i++) {
+      // option element 생성
+      birthMonthEl.innerHTML += `<option value=${i}>${i}</option>`;
+    }
+  }
+});
+birthDayEl.addEventListener("focus", function () {
+  // day 목록 생성되지 않았을 때 (최초 클릭 시)
+  if (!isDayOptionExisted) {
+    isDayOptionExisted = true;
+    for (var i = 1; i <= 31; i++) {
+      // option element 생성
+      birthDayEl.innerHTML += `<option value=${i}>${i}</option>`;
+    }
+  }
+});
 
 // 이메일 중복 확인
 document.querySelector(".checkbtn").addEventListener("click", () => {
@@ -17,14 +57,17 @@ document.querySelector(".checkbtn").addEventListener("click", () => {
       console.log(filterdata);
       if (emailinput.value.length > 0 && emailinput.value.includes("@")) {
         if (filterdata.length <= 0) {
-          checkemail.innerHTML = `사용 가능한 이메일입니다.`;
+          checkemail2.innerHTML = `사용 가능한 이메일입니다.`;
+          checkemail.innerHTML = ``;
           duplecheck = true;
         } else {
+          checkemail2.innerHTML = ``;
           checkemail.innerHTML = `중복된 이메일입니다.`;
           duplecheck = false;
         }
       } else {
-        checkemail.innerHTML = ``;
+        checkemail2.innerHTML = ``;
+        checkemail.innerHTML = `제대로 입력해주세요.`;
         duplecheck = false;
       }
     })
@@ -35,6 +78,7 @@ document.querySelector(".checkbtn").addEventListener("click", () => {
 const checke = () => {
   if (emailinput.value.length === 0) {
     checkemail.innerHTML = ``;
+    checkemail2.innerHTML = ``;
     duplecheck = false;
   }
 };
@@ -95,12 +139,15 @@ const checkPhone = (id) => {
 
 // 회원가입 요청(버튼 클릭)
 const joinreq = () => {
+  const checkall = document.querySelector(".checkall");
   let joinForm = document.joinForm;
   let email = joinForm.id.value;
   let pass = joinForm.pw.value;
   let pass2 = joinForm.pw2.value;
   let name = joinForm.name.value;
-  let birth = joinForm.birth.value;
+  let birth1 = joinForm.birth1.value;
+  let birth2 = joinForm.birth2.value;
+  let birth3 = joinForm.birth3.value;
   let phone1 = joinForm.phone1.value;
   let phone2 = joinForm.phone2.value;
   let phone3 = joinForm.phone3.value;
@@ -111,18 +158,20 @@ const joinreq = () => {
     !pass ||
     !pass2 ||
     !name ||
-    !birth ||
+    isNaN(birth1) ||
+    isNaN(birth2) ||
+    isNaN(birth3) ||
     !phone1 ||
     !phone2 ||
     !phone3 ||
     !gender
   ) {
-    alert("모두 입력해주세요");
+    checkall.innerHTML = `모두 작성해주세요.`;
   } else if (duplecheck === false) {
     checkemail.innerHTML = `중복 확인해주세요.`;
+    checkall.innerHTML = ``;
   } else {
-    // 휴대폰 번호 합치기
-    const phone = `${phone1}-${phone2}-${phone3}`;
+    checkall.innerHTML = ``;
     joinForm.submit();
 
     Swal.fire({

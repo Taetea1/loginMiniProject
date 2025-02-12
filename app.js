@@ -16,34 +16,57 @@ app.set("views", "./views");
 
 let data = {};
 
-// 회원가입 정보 보냄
-app.post("/postForm", (req, res) => {
-  // 클라이언트에서 전송한 데이터 추출
-  let { id, pw, name, birth, gender, phone1, phone2, phone3 } = req.body;
-
-  //생년월일 하이픈 제거
-  let bir = birth.replace(/-/g, "");
-
-  // 휴대전화 번호(서버에서 합침)
-  let phone = `${phone1}${phone2}${phone3}`;
-
-  // 가공한 데이터
-  let newUser = {
-    id,
-    pw,
-    name,
-    bir,
-    gender,
-    phone,
-  };
-  data = newUser;
-  console.log(req.body, "회원가입정보post요청 왔니?");
+// 화면 렌더링
+app.get("/", (req, res) => {
+  res.render("main");
+});
+app.get("/join", (req, res) => {
+  res.render("join");
+});
+app.get("/findid", (req, res) => {
+  res.render("findid");
+});
+app.get("/findpw", (req, res) => {
+  res.render("findpw");
+});
+app.get("/welcome", (req, res) => {
+  res.render("welcome");
 });
 
 // 정보요청
 app.get("/getData", (req, res) => {
   console.log(req.query, "회원가입get요청 왔니?");
   res.json(data);
+});
+
+// 회원가입 정보 보냄
+app.post("/postForm", (req, res) => {
+  // 클라이언트에서 전송한 데이터 추출
+  let { id, pw, name, birth1, birth2, birth3, gender, phone1, phone2, phone3 } =
+    req.body;
+
+  // 휴대전화 번호(서버에서 합침)
+  let phone = `${phone1}${phone2}${phone3}`;
+  let birth;
+  // 생년월일(서버에서 합침)
+  if (birth2.length === 1) {
+    birth2 = 0 + birth2;
+  }
+  if (birth3.length === 1) {
+    birth3 = 0 + birth3;
+  }
+  birth = `${birth1}${birth2}${birth3}`;
+  // 가공한 데이터
+  let newUser = {
+    id,
+    pw,
+    name,
+    birth,
+    gender,
+    phone,
+  };
+  data = newUser;
+  console.log(req.body, "회원가입정보post요청 왔니?");
 });
 
 // 휴대번호 정보 보냄
@@ -62,22 +85,6 @@ app.post("/postPhone", (req, res) => {
 app.post("/postId", (req, res) => {
   data = req.body;
   console.log(data, "회원가입정보post요청 왔니?");
-});
-
-app.get("/", (req, res) => {
-  res.render("main");
-});
-app.get("/join", (req, res) => {
-  res.render("join");
-});
-app.get("/findid", (req, res) => {
-  res.render("findid");
-});
-app.get("/findpw", (req, res) => {
-  res.render("findpw");
-});
-app.get("/welcome", (req, res) => {
-  res.render("welcome");
 });
 
 app.listen(port, () => {
