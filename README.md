@@ -9,8 +9,8 @@
 
 </br>
 
-## 💻프로젝트 기술 스택 및 개발 환경
-### 기술 스택
+## 🔍 프로젝트 기술 스택 및 개발 환경
+### 🛠️ 기술 스택
 <img 
 src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" /><br>
 
@@ -19,7 +19,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 <img src="https://img.shields.io/badge/ejs-%23B4CA65.svg?&style=for-the-badge&logo=ejs&logoColor=black" /><br>
 
-### 개발 환경
+### 💻 개발 환경
 <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
 
@@ -34,7 +34,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 소개
+## 📝 소개
 
 ![image](https://github.com/user-attachments/assets/392369cd-b160-47bd-8586-7b396960204b)
 
@@ -44,7 +44,7 @@ fetch를 이용하여 데이터를 주고 받아 로그인/회원가입을 구�
 
 <br>
 
-## 주요 기능
+## 💎 주요 기능
 1. **회원가입 페이지**</br>
 
 ![Image](https://github.com/user-attachments/assets/64b0c841-12f9-4514-aace-7f8d3e90ac18)
@@ -83,7 +83,7 @@ fetch를 이용하여 데이터를 주고 받아 로그인/회원가입을 구�
 
 </br>
 
-## 사용된 라이브러리
+## 📑 사용된 라이브러리
 ### 라이브러리
 - [SweetAlert2](https://sweetalert2.github.io/)
   - 모던한 디자인의 알림창을 제공하는 JavaScript 라이브러리
