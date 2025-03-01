@@ -2,10 +2,9 @@
 
 > **목차**
 > 1. [프로젝트 기술 스택 및 개발 환경](#프로젝트-기술-스택-및-개발-환경)
-> 2. [시연 영상](#시연-영상)
-> 3. [소개](#소개)
-> 4. [주요 기능](#주요-기능)
-> 5. [사용된 라이브러리](#사용된-라이브러리)
+> 2. [소개](#소개)
+> 3. [주요 기능](#주요-기능)
+> 4. [사용된 라이브러리](#사용된-라이브러리)
 
 </br>
 
@@ -23,13 +22,6 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
 
-
-
-
-
-<br>
-
-## 시연 영상
 
 
 <br>
